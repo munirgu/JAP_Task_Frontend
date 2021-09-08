@@ -3,11 +3,7 @@ import classes from "./Header.module.css";
 
 const Header = () => {
   return (
-    <Fragment>
-      <header className={classes.header}>
-        <div>🎬 Movie Application 🎥</div>
-      </header>
-    </Fragment>
+      <span className={classes.header}>🎬 Movie Application 🎥</span>
   );
 };
 
