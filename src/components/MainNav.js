@@ -43,7 +43,7 @@ export default function SimpleBottomNavigation() {
     >
       <BottomNavigationAction style={{ color: "white" }}
         label="Movies" icon={<MovieIcon />} />
-      <BottomNavigationAction style={{ color: "white" }} label="Tv Shows" icon={<TvIcon/>} />
+      <BottomNavigationAction style={{ color: "white" }} label="Tv Series" icon={<TvIcon/>} />
       <BottomNavigationAction style={{ color: "white" }} label="Search" icon={<SearchIcon/>} />
     </BottomNavigation>
   );

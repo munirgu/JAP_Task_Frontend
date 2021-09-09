@@ -3,7 +3,7 @@
     cursor: pointer;
     position: fixed;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     text-transform: uppercase;
     background-color: #39445a;
     font-family: "Brush Script MT", cursive;

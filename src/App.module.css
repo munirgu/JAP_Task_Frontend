@@ -19,7 +19,7 @@
   .pageTitle {
     text-transform: uppercase;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     font-family: "Montserrat", sans-serif;
     font-size: 2vw;
     padding: 4px;

@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import SingleContent from "../components/SingleContent/SingleContent";
+import './Movies.css'
+import classes from './../App.module.css'
 
 const Series = () => {
 
@@ -18,8 +20,8 @@ const Series = () => {
 
     return (
         <div>
-            <span className="pageTitle">Series</span>
-            <div className="series">
+            <span className={classes.pageTitle}>Series</span>
+            <div className="movies">
            
             { content && content.map((c)=><SingleContent key={c.id} id={c.id} title={c.title} description={c.description} releaseDate={c.releaseDate} imageUrl={c.imageUrl} actors={c.actors} rating={c.rating}/>)}
             </div>
