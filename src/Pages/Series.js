@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import SingleContent from "../components/SingleContent/SingleContent";
 import './Movies.css'
 import classes from './../App.module.css'
+import CustomPagination from "../components/Pagination/CustomPagination";
 
 const Series = () => {
-
+    const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
 
     const fetchSeries = async()=>{
@@ -16,7 +17,7 @@ const Series = () => {
 
     useEffect(() => {
         fetchSeries();
-    }, []);
+    }, [page]);
 
     return (
         <div>
@@ -25,6 +26,7 @@ const Series = () => {
            
             { content && content.map((c)=><SingleContent key={c.id} id={c.id} title={c.title} description={c.description} releaseDate={c.releaseDate} imageUrl={c.imageUrl} actors={c.actors} rating={c.rating}/>)}
             </div>
+            <CustomPagination setPage={setPage}/>
         </div>
     )
 }

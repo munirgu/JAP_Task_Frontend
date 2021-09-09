@@ -3,29 +3,33 @@ import { useState, useEffect } from "react";
 import SingleContent from "../components/SingleContent/SingleContent";
 import './Movies.css'
 import classes from './../App.module.css'
+import CustomPagination from "../components/Pagination/CustomPagination";
 
 const Movies = () => {
 
+    const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
 
     const fetchMovies = async()=>{
-        const {data} = await axios.get('https://localhost:5001/videos/get-all-movie-videos');
+        const {data} = await axios.get('https://localhost:5001/videos/get-top-ten-movies');
         //console.log(data);
         setContent(data);
     };
 
     useEffect(() => {
         fetchMovies();
-    }, []);
+    }, [page]);
+
+
 
     return (
         <div>
             <span className={classes.pageTitle}>Movies</span>
             <div className="movies">
-           
-            { content && content.map((c)=><SingleContent key={c.id} id={c.id} title={c.title} description={c.description} releaseDate={c.releaseDate} imageUrl={c.imageUrl} actors={c.actors} rating={c.rating}/>)}
-            </div>
+            {content && content.map((c)=><SingleContent key={c.id} id={c.id} title={c.title} description={c.description} releaseDate={c.releaseDate} imageUrl={c.imageUrl} actors={c.actors} rating={c.rating}/>)}</div>
+        <CustomPagination setPage={setPage}/>
         </div>
+
     )
 }
 
