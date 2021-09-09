@@ -1,9 +1,13 @@
 import { img_300 } from "../../config/config"
+import classes from "./SingleContent.module.css"
+
 const SingleContent = (props) => {
    
     return (
-        <div>
-         <img src={props.imageUrl} width="250" height="300"/>
+        <div className={classes.media}>
+         <img className={classes.image} src={props.imageUrl} alt={props.title}/>
+         <b className={classes.title}>{props.title}</b>
+         <span className={classes.date}>{props.releaseDate}</span>
     
         </div>
     )
