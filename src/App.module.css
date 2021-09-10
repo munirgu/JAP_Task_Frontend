@@ -32,3 +32,42 @@
       font-size: 6.4vw;
     }
   }
+
+  .movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: -5%;
+  }
+  .button {
+    
+    background-color: #2d313a; 
+  
+    width:20%;
+    position: relative;
+    color: white;
+    padding: 8px 32px;
+   
+    font-family: "Montserrat", sans-serif;
+    text-decoration-color: white;
+    display: inline-block;
+    font-size: 15px;
+    margin: 50px 500px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-style: oblique;
+
+  }
+
+  .button:hover {
+    background-color:white;
+    color: black;
+
+  }
+
+   
+  @media (max-width: 1000px) {
+    .button {
+      font-size: 6.4vw;
+    }
+  }

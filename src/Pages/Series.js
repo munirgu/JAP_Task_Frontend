@@ -1,33 +1,45 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import SingleContent from "../components/SingleContent/SingleContent";
-import './Movies.css'
-import classes from './../App.module.css'
+import classes from './../App.module.css';
 import CustomPagination from "../components/Pagination/CustomPagination";
+import { CenterFocusStrong } from "@material-ui/icons";
+
+
 
 const Series = () => {
+
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
+    const [displayShowMoreButton, setdisplayShowMoreButton] = useState(true);
 
     const fetchSeries = async()=>{
-        const {data} = await axios.get('https://localhost:5001/videos/get-top-ten-shows');
-        //console.log(data);
-        setContent(data);
+        const {data} = await axios.get('https://localhost:5001/videos/get-top-ten-shows?currentPage='+page);
+        
+        var newContent = [...content,...data];
+        setContent(newContent);
+        setdisplayShowMoreButton(data.length>0)
     };
 
     useEffect(() => {
         fetchSeries();
     }, [page]);
 
+    const showMore = ()=>{
+        setPage(page+1);
+    }
+
+
+
     return (
         <div>
             <span className={classes.pageTitle}>Series</span>
-            <div className="movies">
-           
-            { content && content.map((c)=><SingleContent key={c.id} id={c.id} title={c.title} description={c.description} releaseDate={c.releaseDate} imageUrl={c.imageUrl} actors={c.actors} rating={c.rating}/>)}
+            <div className={classes.movies}>
+            {content && content.map((c)=><SingleContent key={c.id} id={c.id} title={c.title} description={c.description} releaseDate={c.releaseDate} imageUrl={c.imageUrl} actors={c.actors} rating={c.rating}/>)}</div>
+            {displayShowMoreButton && <button className={classes.button} onClick={showMore}>View More</button>}
+        
             </div>
-            <CustomPagination setPage={setPage}/>
-        </div>
+
     )
 }
 
