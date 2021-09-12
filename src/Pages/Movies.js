@@ -2,8 +2,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import SingleContent from "../components/SingleContent/SingleContent";
 import classes from './../App.module.css';
-import CustomPagination from "../components/Pagination/CustomPagination";
-import { CenterFocusStrong } from "@material-ui/icons";
 import Search from "./Search";
 
 
@@ -14,47 +12,63 @@ const Movies = () => {
     const [content, setContent] = useState([]);
     const [displayShowMoreButton, setdisplayShowMoreButton] = useState(true);
 
-    const fetchMovies = async()=>{
-        const {data} = await axios.get('https://localhost:5001/videos/get-top-ten-movies?currentPage='+page);
+    const fetchMovies = async(searchText)=>{
         
-        var newContent = [...content,...data];
+        var url="";
+        var issearch= searchText && searchText.length>1;
+               if(issearch){
+                    url='https://localhost:5001/videos/search-movie-videos?quickSearch='+searchText;
+                    setPage(1);
+               }
+               else{
+                    url='https://localhost:5001/videos/get-top-ten-movies?currentPage='+page;
+               }
+               const {data} = await axios.get(url);
+               var newContent=[];
+        
+                if(searchText && searchText.length > 0){
+                    newContent = [...data];
+                }
+                else  {  
+                    newContent = [...content,...data.filter((a)=>!content.find((c)=>c.id === a.id ))];
+                }
         setContent(newContent);
-        setdisplayShowMoreButton(data.length>0)
+        setdisplayShowMoreButton(!issearch && data.length >0);
+        
     };
 
     useEffect(() => {
         fetchMovies();
-    }, [page]);
+    }, []);
 
+    
     const showMore = ()=>{
-        setPage(page+1);
+        setPage(page + 1);
+        fetchMovies();
     }
-
-      //(<SingleContent key={c.id} id={c.id} 
-              //  title={c.title} description={c.description} 
-                //releaseDate={c.releaseDate} imageUrl={c.imageUrl} 
-                //actors={c.actors} rating={c.rating}/>))
+    
+    const onSearch =(searchText)=>{
+        fetchMovies(searchText);
+    }
 
     return (
         <div>
-        
+            <Search onSearch={onSearch}/>
             <span className={classes.pageTitle}>Movies</span>
+            
             <div className={classes.movies}>
             {content && content.map(
-               function(c){
+               function(c,i){
                 var releaseDate=new Date(c.releaseDate);
-                return <SingleContent key={c.id} id={c.id} 
+                return <SingleContent key={i} id={c.id} 
                   title={c.title} description={c.description} 
                   releaseDate={releaseDate.toLocaleDateString('da-DK')} imageUrl={c.imageUrl} 
                   actors={c.actors} rating={c.rating}/>;
                })}
-               
                 </div>
             {displayShowMoreButton && <button className={classes.button} onClick={showMore}>View More</button>}
-            
             </div>
 
     )
 }
-
 export default Movies

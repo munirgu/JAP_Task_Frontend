@@ -22,7 +22,7 @@
     justify-content: left;
     font-family: "Montserrat", sans-serif;
     font-size: 2vw;
-    padding: 4px;
+    padding: 20px;
     border-radius: 50px;
     color: white;
   }
@@ -37,7 +37,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-left: -5%;
+    margin-left: 0%;
   }
   .button {
     

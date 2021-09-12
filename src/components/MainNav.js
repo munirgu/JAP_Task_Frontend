@@ -4,7 +4,6 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import TvIcon from "@material-ui/icons/Tv";
 import MovieIcon from "@material-ui/icons/Movie";
-import SearchIcon from "@material-ui/icons/Search";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -39,12 +38,10 @@ export default function SimpleBottomNavigation() {
         setValue(newValue);
       }}
       showLabels
-      className={classes.root}
-    >
-      <BottomNavigationAction style={{ color: "white" }}
-        label="Movies" icon={<MovieIcon/>} />
+      className={classes.root}>
+
+      <BottomNavigationAction style={{ color: "white" }} label="Movies" icon={<MovieIcon/>} />
       <BottomNavigationAction style={{ color: "white" }} label="Tv Series" icon={<TvIcon/>} />
-      <BottomNavigationAction style={{ color: "white" }} label="Search" icon={<SearchIcon/>} />
     </BottomNavigation>
   );
 }
