@@ -33,12 +33,24 @@ const Series = () => {
 
     return (
         <div>
-            <span className={classes.pageTitle}>Series</span>
-            <div className={classes.movies}>
-            {content && content.map((c)=><SingleContent key={c.id} id={c.id} title={c.title} description={c.description} releaseDate={c.releaseDate} imageUrl={c.imageUrl} actors={c.actors} rating={c.rating}/>)}</div>
-            {displayShowMoreButton && <button className={classes.button} onClick={showMore}>View More</button>}
-        
+            
+        <span className={classes.pageTitle}>Series</span>
+        <div className={classes.movies}>
+        {content && content.map(
+           function(c){
+            var releaseDate=new Date(c.releaseDate);
+            return <SingleContent key={c.id} id={c.id} 
+              title={c.title} description={c.description} 
+              releaseDate={releaseDate.toLocaleDateString('da-DK')} imageUrl={c.imageUrl} 
+              actors={c.actors} rating={c.rating}/>;
+           })}
+           
             </div>
+        {displayShowMoreButton && <button className={classes.button} onClick={showMore}>View More</button>}
+        
+        </div>
+
+
 
     )
 }

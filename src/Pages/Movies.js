@@ -4,6 +4,7 @@ import SingleContent from "../components/SingleContent/SingleContent";
 import classes from './../App.module.css';
 import CustomPagination from "../components/Pagination/CustomPagination";
 import { CenterFocusStrong } from "@material-ui/icons";
+import Search from "./Search";
 
 
 
@@ -29,15 +30,28 @@ const Movies = () => {
         setPage(page+1);
     }
 
-
+      //(<SingleContent key={c.id} id={c.id} 
+              //  title={c.title} description={c.description} 
+                //releaseDate={c.releaseDate} imageUrl={c.imageUrl} 
+                //actors={c.actors} rating={c.rating}/>))
 
     return (
         <div>
+        
             <span className={classes.pageTitle}>Movies</span>
             <div className={classes.movies}>
-            {content && content.map((c)=><SingleContent key={c.id} id={c.id} title={c.title} description={c.description} releaseDate={c.releaseDate} imageUrl={c.imageUrl} actors={c.actors} rating={c.rating}/>)}</div>
+            {content && content.map(
+               function(c){
+                var releaseDate=new Date(c.releaseDate);
+                return <SingleContent key={c.id} id={c.id} 
+                  title={c.title} description={c.description} 
+                  releaseDate={releaseDate.toLocaleDateString('da-DK')} imageUrl={c.imageUrl} 
+                  actors={c.actors} rating={c.rating}/>;
+               })}
+               
+                </div>
             {displayShowMoreButton && <button className={classes.button} onClick={showMore}>View More</button>}
-        
+            
             </div>
 
     )

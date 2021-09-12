@@ -42,7 +42,7 @@ export default function SimpleBottomNavigation() {
       className={classes.root}
     >
       <BottomNavigationAction style={{ color: "white" }}
-        label="Movies" icon={<MovieIcon />} />
+        label="Movies" icon={<MovieIcon/>} />
       <BottomNavigationAction style={{ color: "white" }} label="Tv Series" icon={<TvIcon/>} />
       <BottomNavigationAction style={{ color: "white" }} label="Search" icon={<SearchIcon/>} />
     </BottomNavigation>
