@@ -1,6 +1,6 @@
 ## This is Movie Application or rating engine, similar to the one on imdb.com, but much, much simpler and more rudimentary. Each movie has a title, a cover image, a description, release date, and cast. Also, every movie can be rated by other users by 1-5 stars. Search can be performed by title, description and rating.
 
-# Instruction
+# Instructions
 
 In order to run this application do the following:
    1. Clone frontend repository
