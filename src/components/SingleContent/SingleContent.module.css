@@ -38,13 +38,37 @@
     font-size: 14px;
     padding-bottom: 3px;
     padding: 0 2px;
-   
   }
+  .description {
+    display: flex;
+    font-style: oblique;
+    font-weight: 1;
+    justify-content:left;
+    font-size: 14px;
+    padding-bottom: 20px;
+    padding: 0 2px;
+    color: #e25f5f;
+  }
+  .cast {
+    display: flex;
+    font-style: oblique;
+    font-weight: 1;
+    justify-content: left;
+    font-size: 14px;
+    padding-bottom: 20px;
+    padding: 0 2px;
+    color: #be491b;
+  }
+
+
   .rating {
     display: flex;
     justify-content: center;
     padding-bottom: 3px;
     padding: 0 2px;
-
-    
+  }
+  @media (max-width: 550px) {
+    .button {
+      width: 46%;
+    }
   }

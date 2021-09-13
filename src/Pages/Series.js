@@ -36,6 +36,7 @@ const Series = () => {
 
     useEffect(() => {
         fetchSeries();
+        // eslint-disable-next-line
     }, []);
 
     const showMore = ()=>{

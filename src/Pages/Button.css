@@ -6,6 +6,7 @@
     width: 20%;
     background-color:#39445a;
     color: white;
+    padding: auto;
     
 }
   
@@ -13,3 +14,14 @@
     background-color: white;
     color: black;
   }
+
+
+@media (max-width: 1000px) {
+    .button {
+      padding-top: 15px;
+      font-size: 6.4vw;
+    }
+  }
+
+  
+  

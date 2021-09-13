@@ -1,9 +1,9 @@
-import { TextField, createMuiTheme} from "@material-ui/core";
+import { TextField, createTheme} from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import classes from "./Search.module.css";
 
 const Search = (props) => {
-  const darkTheme = createMuiTheme({
+  const darkTheme = createTheme({
     palette: {
       type: "dark",
       primary: {

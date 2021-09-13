@@ -39,6 +39,7 @@ const Movies = () => {
 
     useEffect(() => {
         fetchMovies();
+        // eslint-disable-next-line
     }, []);
 
     
@@ -55,7 +56,6 @@ const Movies = () => {
         <div>
             <Search onSearch={onSearch}/>
             <span className={classes.pageTitle}>Movies</span>
-            
             <div className={classes.movies}>
             {content && content.map(
                function(c,i){

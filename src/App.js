@@ -1,4 +1,3 @@
-import {Fragment} from "react";
 import Header from "./components/Layout/Header";
 import classes from "./App.module.css";
 import SimpleBottomNavigation from "./components/MainNav";
