@@ -39,7 +39,6 @@ export default function SimpleBottomNavigation() {
       }}
       showLabels
       className={classes.root}>
-
       <BottomNavigationAction style={{ color: "white" }} label="Movies" icon={<MovieIcon/>} />
       <BottomNavigationAction style={{ color: "white" }} label="Tv Series" icon={<TvIcon/>} />
     </BottomNavigation>

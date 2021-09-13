@@ -11,6 +11,7 @@ const Search = (props) => {
       },
     },
   });
+
 const onTextChange = (e)=>{
     const {onSearch} = props;
     onSearch(e.target.value);
@@ -24,8 +25,7 @@ const onTextChange = (e)=>{
               className="searchBox"
               label="Search"
               variant="filled"
-              onChange={onTextChange}
-            />
+              onChange={onTextChange}/>
           </div>
         </ThemeProvider>
         </div>

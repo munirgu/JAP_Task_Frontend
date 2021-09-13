@@ -10,11 +10,10 @@ const SingleContent = (props) => {
          <b className={classes.title}>{props.title}</b>
          <span className={classes.date}>Release date: {props.releaseDate }</span>
          <br/>
-         <span className={classes.cast}>Cast: {props.actors}</span>
+         <span className={classes.cast}>Cast: {props.actors.join(", ")}</span>
          <br/>
          <span className={classes.description}>Description: {props.description}</span>
          <AddRating className={classes.rating} key={props.id} videoId={props.id}/>
-         
         </div>
     )
 }

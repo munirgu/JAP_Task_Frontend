@@ -13,7 +13,6 @@ const Movies = () => {
     const [displayShowMoreButton, setdisplayShowMoreButton] = useState(true);
 
     const fetchMovies = async(searchText)=>{
-        
         var url="";
         var issearch= searchText && searchText.length>1;
                if(issearch){
@@ -58,16 +57,17 @@ const Movies = () => {
             <span className={classes.pageTitle}>Movies</span>
             <div className={classes.movies}>
             {content && content.map(
-               function(c,i){
+                function(c,i){
                 var releaseDate=new Date(c.releaseDate);
                 return <SingleContent key={i} id={c.id} 
                   title={c.title} description={c.description} 
                   releaseDate={releaseDate.toLocaleDateString('da-DK')} imageUrl={c.imageUrl} 
                   actors={c.actors} rating={c.rating}/>;
-               })}
-                </div>
-            {displayShowMoreButton && <button className={classes.button} onClick={showMore}>View More</button>}
+                })
+            }
             </div>
+            {displayShowMoreButton && <button className={classes.button} onClick={showMore}>View More</button>}
+        </div>
 
     )
 }

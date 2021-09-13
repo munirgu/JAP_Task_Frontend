@@ -24,12 +24,12 @@ const Series = () => {
                const {data} = await axios.get(url);
                var newContent=[];
         
-              if(searchText && searchText.length > 0){
+               if(searchText && searchText.length > 0){
                    newContent = [...data];
-              }
-              else  {  
+               }
+               else  {  
                    newContent = [...content,...data.filter((a)=>!content.find((c)=>c.id === a.id ))];
-              }
+               }
               setContent(newContent);
               setdisplayShowMoreButton(!issearch && data.length >0);
            };
@@ -55,12 +55,13 @@ const Series = () => {
             <div className={classes.movies}>
             {content && content.map(
                function(c,i){
-                var releaseDate=new Date(c.releaseDate);
+               var releaseDate=new Date(c.releaseDate);
                     return <SingleContent key={i} id={c.id} 
                         title={c.title} description={c.description} 
                         releaseDate={releaseDate.toLocaleDateString('da-DK')} imageUrl={c.imageUrl} 
                         actors={c.actors} rating={c.rating}/>;
-                        })}
+                        })
+            }
             </div>
             {displayShowMoreButton && <button className={classes.button} onClick={showMore}>View More</button>}
         </div>
